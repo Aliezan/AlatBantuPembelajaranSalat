@@ -1,0 +1,4 @@
+repository "SKRIPSI_SHALAT@muhammadalieza4@cloud"
+  path "/"
+    br "/main"
+    co "/main"
