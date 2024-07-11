@@ -634,59 +634,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618140355}
   m_CullTransparentMesh: 1
---- !u!1 &902263951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 902263952}
-  - component: {fileID: 902263953}
-  m_Layer: 0
-  m_Name: PageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &902263952
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902263951}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.668518, y: 116.51984, z: -1.1937679}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1927459703}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &902263953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 902263951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5e1c6c19069b947b45299f7e7329e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  NextNav: {fileID: 537966816}
-  PrevNav: {fileID: 1932589870}
-  BackToMenuButton: {fileID: 330822140}
-  videoPlaybackControl: {fileID: 0}
 --- !u!1 &1222385490
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,8 +746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -665.8745, y: 462}
-  m_SizeDelta: {x: 394.4105, y: 50}
+  m_AnchoredPosition: {x: -611.4667, y: 462}
+  m_SizeDelta: {x: 503.2262, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262614528
 MonoBehaviour:
@@ -822,7 +769,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pendahuluan
+  m_text: Pendahuluan Salat
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ae370d070fe53c41898a81e11c918c5, type: 2}
   m_sharedMaterial: {fileID: 6776393869430245004, guid: 2ae370d070fe53c41898a81e11c918c5, type: 2}
@@ -831,8 +778,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294902415
+  m_fontColor: {r: 0.56078434, g: 0.007843138, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1050,7 +997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 419983a76dff67c4ba44dc92a81e6bc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e160a2a620644cd6afef9119dad1093, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1178,7 +1125,6 @@ RectTransform:
   - {fileID: 1778359555}
   - {fileID: 1262614527}
   - {fileID: 1222385491}
-  - {fileID: 902263952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

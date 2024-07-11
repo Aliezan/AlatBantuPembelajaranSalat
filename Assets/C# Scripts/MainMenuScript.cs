@@ -11,35 +11,36 @@ public class MainMenuScript : MonoBehaviour
     public Button IsyaButton;
     public Button ExitButton;
     public Button SoundToggleBtn;
+    public Button PlayAllBtn;
+    public Button QuizBtn;
+    public Button BacaanSetelahSalatBtn;
 
     private SoundToggle soundToggle;
 
     void Start()
     {
-        // Add listeners for prayer buttons
-        ShubuhButton.onClick.AddListener(() => GoToMateriShalat(0));
-        DzuhurButton.onClick.AddListener(() => GoToMateriShalat(1));
-        AsharButton.onClick.AddListener(() => GoToMateriShalat(2));
-        MaghribButton.onClick.AddListener(() => GoToMateriShalat(3));
-        IsyaButton.onClick.AddListener(() => GoToMateriShalat(4));
+        ShubuhButton.onClick.AddListener(() => GoToMateriShalat("Shubuh"));
+        DzuhurButton.onClick.AddListener(() => GoToMateriShalat("Dzuhur"));
+        AsharButton.onClick.AddListener(() => GoToMateriShalat("Ashar"));
+        MaghribButton.onClick.AddListener(() => GoToMateriShalat("Maghrib"));
+        IsyaButton.onClick.AddListener(() => GoToMateriShalat("Isya"));
 
-        // Add listener for exit button
+        PlayAllBtn.onClick.AddListener(() => GoToMateriShalat("Pendahuluan"));
+
+        QuizBtn.onClick.AddListener(() => GoToMateriShalat("Quiz"));
+
         ExitButton.onClick.AddListener(() => Application.Quit());
 
-        // Get reference to SoundToggle script
         soundToggle = SoundToggleBtn.GetComponent<SoundToggle>();
 
-        // Add listener for sound toggle button
         SoundToggleBtn.onClick.AddListener(ToggleSound);
 
-        // Update sound toggle button icon based on current sound state
         UpdateSoundToggleIcon();
     }
 
-    void GoToMateriShalat(int pageIndex)
+    void GoToMateriShalat(string scene)
     {
-        PageManager.PageIndex = pageIndex;
-        SceneManager.LoadScene("MateriShalat");
+        SceneManager.LoadScene(scene);
     }
 
     void ToggleSound()

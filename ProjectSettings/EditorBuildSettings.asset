@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: e721b1d7cd90a7a438921f0fa9362df1
+  - enabled: 1
+    path: Assets/Scenes/Pendahuluan.unity
+    guid: 7ef2a5f5c8835c740b0eaa188d68753e
+  - enabled: 1
     path: Assets/Scenes/Shubuh.unity
     guid: 864bf9e93aa4ac14cbd2ef530616bb8b
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: e721b1d7cd90a7a438921f0fa9362df1
+    path: Assets/Scenes/Dzuhur.unity
+    guid: 471a54d9877fc0e4d95bef9316fa41d0
   m_configObjects: {}

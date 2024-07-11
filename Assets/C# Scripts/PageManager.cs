@@ -12,6 +12,7 @@ public class PageManager : MonoBehaviour
     public Button PrevNav;
     public Button BackToMenuButton;
     public VideoPlaybackControl videoPlaybackControl;
+    public string desiredScene;
     private int currentPageIndex = 0;
 
     void Start()
@@ -32,7 +33,6 @@ public class PageManager : MonoBehaviour
 
         // Set interactability based on current page index
         PrevNav.interactable = currentPageIndex > 0;
-        NextNav.interactable = currentPageIndex < pages.Length - 1;
 
         // Ensure the buttons are always active (not set inactive)
         PrevNav.gameObject.SetActive(true);
@@ -43,6 +43,16 @@ public class PageManager : MonoBehaviour
         {
             videoPlaybackControl.SetActiveContent(currentPageIndex);
         }
+
+        // Update the interactability of the NextNav button separately
+        if (currentPageIndex < pages.Length - 1)
+        {
+            NextNav.interactable = true;
+        }
+        else
+        {
+            NextNav.interactable = true;
+        }
     }
 
     void NextPage()
@@ -51,6 +61,11 @@ public class PageManager : MonoBehaviour
         {
             currentPageIndex++;
             UpdatePage();
+        }
+        else
+        {
+            // Load the desired scene when the last page is reached
+            SceneManager.LoadScene(desiredScene);
         }
     }
 
