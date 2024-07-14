@@ -8,6 +8,7 @@ public class VideoNavigation : MonoBehaviour
     public Button prevNav; // Button to navigate to the previous video
     public GameObject textOne;
     public GameObject textTwo;
+    public GameObject textThree; // New textThree GameObject
 
     private int currentVideoIndex = 0;
 
@@ -43,6 +44,12 @@ public class VideoNavigation : MonoBehaviour
 
             // Activate textTwo if index is 1, otherwise deactivate it
             textTwo.SetActive(currentVideoIndex == 1);
+
+            // Activate textThree if index is 2, otherwise deactivate it
+            if (textThree != null)
+            {
+                textThree.SetActive(currentVideoIndex == 2);
+            }
 
             // Update button interactability based on current index
             UpdateButtonInteractability();
