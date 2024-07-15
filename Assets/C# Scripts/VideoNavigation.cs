@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class VideoNavigation : MonoBehaviour
 {
-    public GameObject[] contentGameObjects; // Array of video GameObjects
-    public Button nextNav; // Button to navigate to the next video
-    public Button prevNav; // Button to navigate to the previous video
+    public GameObject[] contentGameObjects;
+    public Button nextNav; 
+    public Button prevNav; 
     public GameObject textOne;
     public GameObject textTwo;
     public GameObject textThree;
