@@ -21274,7 +21274,7 @@ MonoBehaviour:
   PrevNav: {fileID: 1706413306}
   BackToMenuButton: {fileID: 1594865577}
   videoPlaybackControl: {fileID: 0}
-  desiredScene: Ashar
+  desiredScene: Isya
 --- !u!1 &799554853
 GameObject:
   m_ObjectHideFlags: 0

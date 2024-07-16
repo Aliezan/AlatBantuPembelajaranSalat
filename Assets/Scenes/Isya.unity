@@ -49596,7 +49596,7 @@ MonoBehaviour:
   PrevNav: {fileID: 2070246421}
   BackToMenuButton: {fileID: 12573803}
   videoPlaybackControl: {fileID: 0}
-  desiredScene: Ashar
+  desiredScene: Quiz
 --- !u!1 &1511397180
 GameObject:
   m_ObjectHideFlags: 0
