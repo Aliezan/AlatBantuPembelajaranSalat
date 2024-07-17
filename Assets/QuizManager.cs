@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro; // Make sure to include the TMPro namespace
 
 public class QuizManager : MonoBehaviour
 {
@@ -54,42 +55,43 @@ public class QuizManager : MonoBehaviour
             // Remove any existing listener to avoid multiple additions
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(() => CheckAnswer(button));
-            Debug.Log("Listener added to button: " + button.name);
         }
     }
 
     public void CheckAnswer(Button selectedButton)
     {
-        Debug.Log("Button clicked: " + selectedButton.name);
-
         if (correctAnswerButton == null)
         {
-            Debug.LogError("Correct answer button is not assigned for the current page.");
             return;
         }
 
-        Text selectedText = selectedButton.GetComponentInChildren<Text>();
-        if (selectedText == null)
-        {
-            Debug.LogError("Selected button does not have a Text component.");
-            return;
-        }
+        // Get all TextMeshProUGUI components in the selected button
+        TextMeshProUGUI[] selectedTexts = selectedButton.GetComponentsInChildren<TextMeshProUGUI>();
 
-        Text correctText = correctAnswerButton.GetComponentInChildren<Text>();
-        if (correctText == null)
-        {
-            Debug.LogError("Correct answer button does not have a Text component.");
-            return;
-        }
+        // Get all TextMeshProUGUI components in the correct answer button
+        TextMeshProUGUI[] correctTexts = correctAnswerButton.GetComponentsInChildren<TextMeshProUGUI>();
 
         if (selectedButton == correctAnswerButton)
         {
-            selectedText.color = Color.green;
+            // Set all texts in the selected button to green
+            foreach (var text in selectedTexts)
+            {
+                text.color = Color.green;
+            }
         }
         else
         {
-            selectedText.color = Color.red;
-            correctText.color = Color.green;
+            // Set all texts in the selected button to red
+            foreach (var text in selectedTexts)
+            {
+                text.color = Color.red;
+            }
+
+            // Set all texts in the correct button to green
+            foreach (var text in correctTexts)
+            {
+                text.color = Color.green;
+            }
         }
 
         DisableAllOptionButtons();
