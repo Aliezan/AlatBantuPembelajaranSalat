@@ -30414,8 +30414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa2fddb9cb8ae3468e2e79f1cd5294c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content1: {fileID: 0}
-  content2: {fileID: 0}
+  content1: {fileID: 969462159}
+  content2: {fileID: 1251836529}
   content3: {fileID: 0}
   buttonContent1: {fileID: 472722810}
   buttonContent2: {fileID: 2020879602}
