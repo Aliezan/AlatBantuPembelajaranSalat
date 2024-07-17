@@ -17,4 +17,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dzuhur.unity
     guid: 471a54d9877fc0e4d95bef9316fa41d0
+  - enabled: 1
+    path: Assets/Scenes/Ashar.unity
+    guid: 1ac12a48acff0ab4a997ef3b381e0484
+  - enabled: 1
+    path: Assets/Scenes/Maghrib.unity
+    guid: 358ef0b6423c5564b89fff106c43ee17
+  - enabled: 1
+    path: Assets/Scenes/Isya.unity
+    guid: 9aba13be0238f324b903317659b14758
+  - enabled: 1
+    path: Assets/Scenes/Quiz.unity
+    guid: dd7cca23922884a4985c4e7ce14c94d7
+  - enabled: 1
+    path: Assets/Scenes/BacaanSetelahShalat.unity
+    guid: ce4ac59bcfe3f0b4989df8d621c10f1e
   m_configObjects: {}
