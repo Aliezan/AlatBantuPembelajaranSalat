@@ -3,53 +3,40 @@ using UnityEngine.UI;
 
 public class ContentToggle : MonoBehaviour
 {
-    public GameObject content1;
-    public GameObject content2;
-    public GameObject content3;
-    public Button buttonContent1;
-    public Button buttonContent2;
-    public Button buttonContent3;
+    public GameObject[] contentGameObjects; // Array of content GameObjects
+    public Button[] contentButtons; // Array of buttons to toggle contents
+    public AudioPlaybackControl audioPlaybackControl;
 
     void Start()
     {
-        buttonContent1.onClick.AddListener(ShowContent1);
-        buttonContent2.onClick.AddListener(ShowContent2);
-
-        if (buttonContent3 != null)
+        // Add listeners to the content buttons
+        for (int i = 0; i < contentButtons.Length; i++)
         {
-            buttonContent3.onClick.AddListener(ShowContent3);
+            int index = i; // Capture the index
+            contentButtons[i].onClick.AddListener(() => ShowContent(index));
         }
 
-        ShowContent1(); // Default to showing Content1
-    }
-
-    void ShowContent1()
-    {
-        content1.SetActive(true);
-        content2.SetActive(false);
-        if (content3 != null)
+        // Default to showing the first content (if any)
+        if (contentGameObjects.Length > 0)
         {
-            content3.SetActive(false);
+            ShowContent(0);
+        }
+        else
+        {
+            Debug.LogWarning($"No contentGameObjects set for {gameObject.name}");
         }
     }
 
-    void ShowContent2()
+    void ShowContent(int index)
     {
-        content1.SetActive(false);
-        content2.SetActive(true);
-        if (content3 != null)
+        for (int i = 0; i < contentGameObjects.Length; i++)
         {
-            content3.SetActive(false);
+            contentGameObjects[i].SetActive(i == index);
         }
-    }
 
-    void ShowContent3()
-    {
-        content1.SetActive(false);
-        content2.SetActive(false);
-        if (content3 != null)
+        if (audioPlaybackControl != null && index < audioPlaybackControl.audioSources.Length)
         {
-            content3.SetActive(true);
+            audioPlaybackControl.SetActiveContent(index);
         }
     }
 }

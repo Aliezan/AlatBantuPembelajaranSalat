@@ -1,99 +1,83 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class AudioPlaybackControl : MonoBehaviour
 {
-    public GameObject[] contentGameObjects; // Array of content GameObjects
-    public Button playButton;
+    public AudioSource[] audioSources; // Array of audio sources corresponding to contentGameObjects
+    public Button[] playButtons; // Array of play buttons corresponding to audioSources
 
-    private AudioSource[] currentAudioSources;
-    private int activeContentIndex = -1; // Track the currently active content index
+    private AudioSource currentAudioSource;
+    private Button currentPlayButton;
 
     void Start()
     {
-        // Add listener to the play button
-        playButton.onClick.AddListener(PlayAudios);
-
-        // Initialize with the first content (if any)
-        if (contentGameObjects.Length > 0)
+        // Add listeners to the play buttons
+        if (playButtons.Length == audioSources.Length)
         {
-            SetActiveContent(0); // Start with the first content
+            for (int i = 0; i < playButtons.Length; i++)
+            {
+                int index = i; // Capture the index
+                playButtons[i].onClick.AddListener(() => PlayAudio(index));
+            }
+
+            // Initialize with the first audio source (if any)
+            if (audioSources.Length > 0)
+            {
+                SetActiveContent(0); // Start with the first audio source
+            }
+            else
+            {
+                Debug.LogWarning($"No audioSources set for {gameObject.name}");
+            }
         }
         else
         {
-            Debug.LogWarning($"No contentGameObjects set for {gameObject.name}");
+            Debug.LogError("The number of play buttons must match the number of audio sources.");
         }
     }
 
-    // Call this method when you change the active content
     public void SetActiveContent(int index)
     {
-        if (index >= 0 && index < contentGameObjects.Length)
+        if (index >= 0 && index < audioSources.Length)
         {
-            // Deactivate the previously active content
-            if (activeContentIndex >= 0 && activeContentIndex < contentGameObjects.Length)
+            // Deactivate the previously active audio source
+            if (currentAudioSource != null)
             {
-                foreach (AudioSource audioSource in contentGameObjects[activeContentIndex].GetComponentsInChildren<AudioSource>())
-                {
-                    audioSource.Stop();
-                }
+                currentAudioSource.Stop();
             }
 
-            // Activate the new content
-            activeContentIndex = index;
-            currentAudioSources = contentGameObjects[activeContentIndex].GetComponentsInChildren<AudioSource>();
+            currentAudioSource = audioSources[index];
+            currentPlayButton = playButtons[index];
 
-            if (currentAudioSources.Length > 0)
-            {
-                // Ensure audios play on awake if the GameObject is active
-                foreach (AudioSource audioSource in currentAudioSources)
-                {
-                    if (audioSource.playOnAwake && audioSource.gameObject.activeInHierarchy)
-                    {
-                        audioSource.Play();
-                        StartCoroutine(CheckAudioCompletion(audioSource));
-                    }
-                }
-            }
             UpdateButtonStates();
         }
     }
 
-    void PlayAudios()
+    void PlayAudio(int index)
     {
-        if (currentAudioSources != null)
+        if (index >= 0 && index < audioSources.Length)
         {
-            foreach (AudioSource audioSource in currentAudioSources)
+            SetActiveContent(index);
+
+            if (currentAudioSource != null)
             {
-                if (audioSource.gameObject.activeInHierarchy) // Check if the GameObject is active
-                {
-                    audioSource.Play();
-                    StartCoroutine(CheckAudioCompletion(audioSource));
-                }
+                currentAudioSource.Play();
+                StartCoroutine(CheckAudioCompletion(currentAudioSource));
+                UpdateButtonStates();
             }
-            UpdateButtonStates();
         }
     }
 
     void UpdateButtonStates()
     {
-        bool isPlaying = false;
-
-        if (currentAudioSources != null)
+        if (currentPlayButton != null)
         {
-            foreach (AudioSource audioSource in currentAudioSources)
-            {
-                if (audioSource.gameObject.activeInHierarchy && audioSource.isPlaying) // Check if the GameObject is active
-                {
-                    isPlaying = true;
-                }
-            }
+            currentPlayButton.interactable = currentAudioSource != null && !currentAudioSource.isPlaying;
         }
-
-        playButton.interactable = !isPlaying;
     }
 
-    private System.Collections.IEnumerator CheckAudioCompletion(AudioSource audioSource)
+    private IEnumerator CheckAudioCompletion(AudioSource audioSource)
     {
         yield return new WaitWhile(() => audioSource.isPlaying);
         UpdateButtonStates();
