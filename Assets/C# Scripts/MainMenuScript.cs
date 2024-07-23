@@ -10,7 +10,6 @@ public class MainMenuScript : MonoBehaviour
     public Button MaghribButton;
     public Button IsyaButton;
     public Button ExitButton;
-    public Button SoundToggleBtn;
     public Button PlayAllBtn;
     public Button QuizBtn;
     public Button BacaanSetelahSalatBtn;
@@ -32,28 +31,10 @@ public class MainMenuScript : MonoBehaviour
         BacaanSetelahSalatBtn.onClick.AddListener(() => GoToMateriShalat("BacaanSetelahSalat"));
 
         ExitButton.onClick.AddListener(() => Application.Quit());
-
-        soundToggle = SoundToggleBtn.GetComponent<SoundToggle>();
-
-        SoundToggleBtn.onClick.AddListener(ToggleSound);
-
-        UpdateSoundToggleIcon();
     }
 
     void GoToMateriShalat(string scene)
     {
         SceneManager.LoadScene(scene);
-    }
-
-    void ToggleSound()
-    {
-        soundToggle.ToggleSound(); // Toggle sound using SoundToggle script
-        UpdateSoundToggleIcon(); // Update sound toggle button icon
-    }
-
-    void UpdateSoundToggleIcon()
-    {
-        // Update sound toggle button icon based on current sound state
-        soundToggle.UpdateIcon();
     }
 }
