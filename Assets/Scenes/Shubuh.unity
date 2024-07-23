@@ -32933,8 +32933,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentGameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1033662276}
+  - {fileID: 470432735}
   contentButtons:
   - {fileID: 218244873}
   - {fileID: 244267494}
@@ -54158,8 +54158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentGameObjects:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1841625070}
+  - {fileID: 1625863310}
   contentButtons:
   - {fileID: 769905373}
   - {fileID: 1862609078}
