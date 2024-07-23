@@ -14,8 +14,6 @@ public class MainMenuScript : MonoBehaviour
     public Button QuizBtn;
     public Button BacaanSetelahSalatBtn;
 
-    private SoundToggle soundToggle;
-
     void Start()
     {
         ShubuhButton.onClick.AddListener(() => GoToMateriShalat("Shubuh"));
@@ -28,7 +26,7 @@ public class MainMenuScript : MonoBehaviour
 
         QuizBtn.onClick.AddListener(() => GoToMateriShalat("Quiz"));
 
-        BacaanSetelahSalatBtn.onClick.AddListener(() => GoToMateriShalat("BacaanSetelahSalat"));
+        BacaanSetelahSalatBtn.onClick.AddListener(() => GoToMateriShalat("BacaanSetelahShalat"));
 
         ExitButton.onClick.AddListener(() => Application.Quit());
     }

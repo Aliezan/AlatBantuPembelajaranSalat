@@ -2042,7 +2042,7 @@ MonoBehaviour:
   PrevNav: {fileID: 1943034396}
   BackToMenuButton: {fileID: 1736156104}
   videoPlaybackControl: {fileID: 0}
-  desiredScene: MainMenu
+  desiredScene: Quiz
 --- !u!1 &983979779
 GameObject:
   m_ObjectHideFlags: 0
