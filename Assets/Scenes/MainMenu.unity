@@ -730,7 +730,6 @@ MonoBehaviour:
   MaghribButton: {fileID: 1600531134}
   IsyaButton: {fileID: 826567538}
   ExitButton: {fileID: 125878562}
-  SoundToggleBtn: {fileID: 0}
   PlayAllBtn: {fileID: 193395697}
   QuizBtn: {fileID: 1819955917}
   BacaanSetelahSalatBtn: {fileID: 111865536}

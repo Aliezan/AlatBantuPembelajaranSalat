@@ -24,10 +24,6 @@ public class VideoPlaybackControl : MonoBehaviour
         {
             SetActiveContent(0); // Start with the first content
         }
-        else
-        {
-            Debug.LogWarning($"No contentGameObjects set for {gameObject.name}");
-        }
     }
 
     // Call this method when you change the active content
@@ -140,7 +136,6 @@ public class VideoPlaybackControl : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
-        // Called when the video ends
         UpdateButtonStates();
     }
 }

@@ -21,10 +21,6 @@ public class ContentToggle : MonoBehaviour
         {
             ShowContent(0);
         }
-        else
-        {
-            Debug.LogWarning($"No contentGameObjects set for {gameObject.name}");
-        }
     }
 
     void ShowContent(int index)

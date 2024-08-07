@@ -26,10 +26,6 @@ public class AudioPlaybackControl : MonoBehaviour
             {
                 SetActiveContent(0); // Start with the first audio source
             }
-            else
-            {
-                Debug.LogWarning($"No audioSources set for {gameObject.name}");
-            }
         }
         else
         {

@@ -9,7 +9,6 @@ public class PageManager : MonoBehaviour
     public Button NextNav;
     public Button PrevNav;
     public Button BackToMenuButton;
-    public VideoPlaybackControl videoPlaybackControl;
     public string desiredScene;
     private int currentPageIndex = 0;
 
@@ -35,12 +34,6 @@ public class PageManager : MonoBehaviour
         // Ensure the buttons are always active (not set inactive)
         PrevNav.gameObject.SetActive(true);
         NextNav.gameObject.SetActive(true);
-
-        // Call SetActiveContent with the current page index
-        if (videoPlaybackControl != null)
-        {
-            videoPlaybackControl.SetActiveContent(currentPageIndex);
-        }
 
         // Update the interactability of the NextNav button separately
         if (currentPageIndex < pages.Length - 1)
