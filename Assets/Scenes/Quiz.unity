@@ -6356,6 +6356,8 @@ MonoBehaviour:
   - {fileID: 1569476854}
   GameObjectA: {fileID: 1695750901}
   GameObjectB: {fileID: 1515897894}
+  correctAnswerAudio: {fileID: 8300000, guid: 10d51ecc9d29b0549b2a4904bbc7dcb0, type: 3}
+  incorrectAnswerAudio: {fileID: 8300000, guid: ec9f190d0a191aa42a5d3476ec953cca, type: 3}
 --- !u!1 &533715067
 GameObject:
   m_ObjectHideFlags: 0
@@ -9464,6 +9466,7 @@ MonoBehaviour:
   playButton: {fileID: 634102646}
   pauseButton: {fileID: 2084020592}
   restartButton: {fileID: 708543107}
+  fullscreenButton: {fileID: 0}
 --- !u!1 &746251185
 GameObject:
   m_ObjectHideFlags: 0
@@ -16380,6 +16383,7 @@ MonoBehaviour:
   playButton: {fileID: 1515698908}
   pauseButton: {fileID: 512676465}
   restartButton: {fileID: 1512613516}
+  fullscreenButton: {fileID: 0}
 --- !u!1 &1351691693
 GameObject:
   m_ObjectHideFlags: 0
@@ -23126,6 +23130,7 @@ MonoBehaviour:
   playButton: {fileID: 350768188}
   pauseButton: {fileID: 414393628}
   restartButton: {fileID: 748852144}
+  fullscreenButton: {fileID: 0}
 --- !u!1 &1928015272
 GameObject:
   m_ObjectHideFlags: 0

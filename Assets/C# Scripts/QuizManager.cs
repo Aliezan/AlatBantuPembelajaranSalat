@@ -21,6 +21,11 @@ public class QuizManager : MonoBehaviour
     public GameObject GameObjectA;
     public GameObject GameObjectB;
 
+    // Audio clips for correct and incorrect answers
+    public AudioClip correctAnswerAudio;
+    public AudioClip incorrectAnswerAudio;
+    private AudioSource audioSource;
+
     void Awake()
     {
         if (Instance == null)
@@ -30,6 +35,13 @@ public class QuizManager : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(gameObject);
+        }
+
+        // Add AudioSource component if it doesn't exist
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
@@ -122,6 +134,9 @@ public class QuizManager : MonoBehaviour
             {
                 GameObjectB.SetActive(false);
             }
+
+            // Play correct answer audio
+            PlayAudio(correctAnswerAudio);
         }
         else
         {
@@ -146,9 +161,21 @@ public class QuizManager : MonoBehaviour
             {
                 GameObjectB.SetActive(true);
             }
+
+            // Play incorrect answer audio
+            PlayAudio(incorrectAnswerAudio);
         }
 
         DisableAllOptionButtons();
+    }
+
+    void PlayAudio(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
     }
 
     void DisableAllOptionButtons()

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PendahuluanNav : MonoBehaviour
+public class PendahuluanPage : MonoBehaviour
 {
     public Button NextNavBtn;
     public Button BackToMenuBtn;

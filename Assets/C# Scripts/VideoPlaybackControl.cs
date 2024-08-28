@@ -8,9 +8,13 @@ public class VideoPlaybackControl : MonoBehaviour
     public Button playButton;
     public Button pauseButton;
     public Button restartButton;
+    public Button fullscreenButton;
 
     private VideoPlayer[] currentVideoPlayers;
     private int activeContentIndex = -1; // Track the currently active content index
+    private bool isFullscreen = false;
+
+
 
     void Start()
     {
@@ -19,11 +23,18 @@ public class VideoPlaybackControl : MonoBehaviour
         pauseButton.onClick.AddListener(PauseVideos);
         restartButton.onClick.AddListener(RestartVideos);
 
+        if (fullscreenButton != null)
+        {
+            fullscreenButton.onClick.AddListener(ToggleFullscreen);
+        }
+
+
         // Initialize with the first content (if any)
         if (contentGameObjects.Length > 0)
         {
             SetActiveContent(0); // Start with the first content
         }
+
     }
 
     // Call this method when you change the active content
@@ -105,6 +116,13 @@ public class VideoPlaybackControl : MonoBehaviour
             UpdateButtonStates();
         }
     }
+    void ToggleFullscreen()
+    {
+        isFullscreen = !isFullscreen;
+        Screen.fullScreen = isFullscreen;
+        UpdateButtonStates();
+    }
+
 
     void UpdateButtonStates()
     {
@@ -132,7 +150,18 @@ public class VideoPlaybackControl : MonoBehaviour
         playButton.interactable = !isPlaying;
         pauseButton.interactable = isPlaying || isPaused;
         restartButton.interactable = isPlaying || isPaused;
+
+        if (fullscreenButton != null)
+        {
+            Text fullscreenButtonText = fullscreenButton.GetComponentInChildren<Text>();
+            if (fullscreenButtonText != null)
+            {
+                fullscreenButtonText.text = isFullscreen ? "Exit Fullscreen" : "Fullscreen";
+            }
+        }
     }
+
+
 
     void OnVideoEnd(VideoPlayer vp)
     {

@@ -22,7 +22,7 @@ public class MainMenuScript : MonoBehaviour
         MaghribButton.onClick.AddListener(() => GoToMateriShalat("Maghrib"));
         IsyaButton.onClick.AddListener(() => GoToMateriShalat("Isya"));
 
-        PlayAllBtn.onClick.AddListener(() => GoToMateriShalat("Pendahuluan"));
+        PlayAllBtn.onClick.AddListener(() => GoToMateriShalat("PendahuluanRev"));
 
         QuizBtn.onClick.AddListener(() => GoToMateriShalat("Quiz"));
 
